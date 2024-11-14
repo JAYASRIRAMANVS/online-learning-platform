@@ -105,6 +105,9 @@
   <h2>Description</h2>
   <p>This is an online learning platform built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The platform provides a comprehensive environment for students and teachers, including features like courses, an inbuilt IDE, a resume builder, and separate logins for teachers/instructors and students.</p>
 
+  <h2>Video Link</h2>
+  <p>Watch the introductory video of the platform here: <a href="https://drive.google.com/file/d/1wRBdRgKPI-39NIJXQDV6isE5NjFvpRF5/view?usp=sharing" target="_blank">Platform Overview Video</a></p>
+
   <h2 class="section-title">Features</h2>
   <ul>
     <li><strong>User Authentication</strong>: Separate logins for teachers and students with secure authentication.</li>
