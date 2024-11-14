@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Learning Platform</title>
-  <style>
+<!--   <style>
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
@@ -93,7 +93,7 @@
     footer p {
       margin: 0;
     }
-  </style>
+  </style> -->
 </head>
 <body>
 
