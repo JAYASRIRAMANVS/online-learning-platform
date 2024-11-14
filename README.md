@@ -9,61 +9,89 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #f4f4f4;
+      background-color: #f3f7fa;
       margin: 0;
       padding: 0;
     }
     header {
       background-color: #4CAF50;
       color: white;
-      padding: 10px 0;
+      padding: 20px 0;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-    h1, h2 {
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    h2, h3 {
       color: #333;
+      font-weight: bold;
     }
-    h3 {
-      color: #555;
-    }
-    p {
-      font-size: 1.1em;
+    h2.section-title {
+      color: #4CAF50;
+      font-size: 1.8em;
+      margin-top: 30px;
     }
     .content {
-      margin: 20px;
-      padding: 20px;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 25px;
       background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    p, ul, code {
+      font-size: 1.15em;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    ul li {
+      margin: 10px 0;
+      line-height: 1.5;
     }
     code {
-      background-color: #f4f4f4;
-      padding: 5px 10px;
-      border-radius: 4px;
+      background-color: #e8f0fe;
+      color: #d63384;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 1em;
     }
     pre {
       background-color: #2c3e50;
-      color: white;
+      color: #ffffff;
       padding: 15px;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1em;
       overflow: auto;
       margin-top: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .section-title {
-      color: #4CAF50;
-      font-weight: bold;
+    .button {
+      display: inline-block;
+      padding: 10px 15px;
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: white;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
-    ul {
-      list-style-type: none;
-    }
-    li {
-      margin: 10px 0;
+    .button:hover {
+      background-color: #45a049;
     }
     footer {
       background-color: #333;
-      color: white;
-      padding: 10px;
+      color: #ccc;
+      padding: 15px 0;
       text-align: center;
-      margin-top: 20px;
+      font-size: 0.9em;
+    }
+    footer p {
+      margin: 0;
     }
   </style>
 </head>
