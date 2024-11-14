@@ -162,12 +162,12 @@ npm start</code></pre>
   <h2 class="section-title">Folder Structure</h2>
   <pre><code>online-learning-platform
 │
-├── client            # React frontend
+├── Frontend            # React frontend
 │   ├── src           # React source files
 │   ├── public        # Public assets
 │   └── ...
 │
-└── server            # Node.js backend
+└── Backend            # Node.js backend
     ├── models        # Mongoose models
     ├── routes        # Express routes
     ├── controllers   # Route handlers
