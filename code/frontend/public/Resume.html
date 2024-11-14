@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Resume Builder</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e9f5ff;
+            color: #333;
+        }
+        
+        /* Form Container */
+        #resume-form {
+            width: 100%;
+            max-width: 650px;
+            padding: 35px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            animation: slideIn 0.5s ease-in-out;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1a73e8;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Labels and Inputs */
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 16px;
+            background-color: #f9fafb;
+        }
+        input:focus, textarea:focus {
+            border-color: #1a73e8;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+        }
+
+        /* Button Styles */
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #185abc;
+        }
+        
+        /* Output Section */
+        #resume-output {
+            display: none;
+            background-color: #ffffff;
+            padding: 30px;
+            margin-top: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s;
+            width: 100%;
+            max-width: 650px;
+        }
+        #resume-output h2 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #resume-output h3 {
+            color: #1a73e8;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        #resume-output p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="resume-form">
+    <h2>Create Your Resume</h2>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email address" required>
+
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+    <label for="summary">Summary</label>
+    <textarea id="summary" rows="3" placeholder="Write a brief professional summary"></textarea>
+
+    <label for="skills">Skills (comma-separated)</label>
+    <input type="text" id="skills" placeholder="e.g., JavaScript, Python, Communication">
+
+    <label for="education">Education</label>
+    <textarea id="education" rows="2" placeholder="e.g., B.Sc. in Computer Science, University Name, Year"></textarea>
+
+    <label for="experience">Experience</label>
+    <textarea id="experience" rows="4" placeholder="Describe your professional experience here"></textarea>
+
+    <label for="projects">Projects</label>
+    <textarea id="projects" rows="3" placeholder="Describe notable projects here"></textarea>
+    
+    <button onclick="generateResume()">Generate Resume</button>
+</div>
+
+<div id="resume-output">
+    <h2 id="output-name"></h2>
+    <p><strong>Email:</strong> <span id="output-email"></span></p>
+    <p><strong>Phone:</strong> <span id="output-phone"></span></p>
+    <h3>Summary</h3>
+    <p id="output-summary"></p>
+    <h3>Skills</h3>
+    <p id="output-skills"></p>
+    <h3>Education</h3>
+    <p id="output-education"></p>
+    <h3>Experience</h3>
+    <p id="output-experience"></p>
+    <h3>Projects</h3>
+    <p id="output-projects"></p>
+    <button onclick="downloadPDF()">Download PDF</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script>
+    function generateResume() {
+        // Get values from inputs
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const summary = document.getElementById('summary').value;
+        const skills = document.getElementById('skills').value;
+        const education = document.getElementById('education').value;
+        const experience = document.getElementById('experience').value;
+        const projects = document.getElementById('projects').value;
+
+        // Insert values into the resume output section
+        document.getElementById('output-name').innerText = name;
+        document.getElementById('output-email').innerText = email;
+        document.getElementById('output-phone').innerText = phone;
+        document.getElementById('output-summary').innerText = summary;
+        document.getElementById('output-skills').innerText = skills;
+        document.getElementById('output-education').innerText = education;
+        document.getElementById('output-experience').innerText = experience;
+        document.getElementById('output-projects').innerText = projects;
+
+        // Show the resume output section
+        document.getElementById('resume-output').style.display = 'block';
+    }
+
+    function downloadPDF() {
+        const resumeContent = document.getElementById('resume-output');
+        
+        // Convert the resume content to PDF and download
+        html2pdf().from(resumeContent).set({
+            margin: 0.5,
+            filename: 'Resume.pdf',
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        }).save();
+    }
+</script>
+
+</body>
+</html>
